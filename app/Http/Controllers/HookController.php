@@ -30,28 +30,42 @@ class HookController extends Controller
         $taskersCurrentTask[0] = $tasks[$currentTaskId];
 
         foreach ($tasks as $taskIndex => $task) {
+            $nonAssignedTasker = null;
+            $canExecuteTaskers = array();
             if ($currentTaskId !== $taskIndex) {
-                $bestTasker = null;
-                $bestTime = null;
                 foreach ($taskersCurrentTask as $tasker => $currentTaskerTask) {
                     if ($currentTaskerTask == null) {
-                        if ($bestTasker == null) {
-                            $bestTasker = $tasker;
-                        }
+                        $nonAssignedTasker = $tasker;
                     } else if ($this->isExecutable(
                         $currentTaskerTask,
                         $task
                     )) {
-                        if (!$bestTime || $bestTime > $currentTaskerTask["dueTime"]) {
-                            $bestTasker = $tasker;
-                            $bestTime = $currentTaskerTask["dueTime"];
+                        array_push($canExecuteTaskers, $tasker);
+                    }
+                }
+                $selectedTasker = null;
+
+                if (count($canExecuteTaskers) == 0 && null == $nonAssignedTasker) {
+                    continue;
+                }
+
+                if (count($canExecuteTaskers) == 0) {
+                    $selectedTasker = $nonAssignedTasker;
+                } else {
+                    $worstGain = null;
+                    foreach ($canExecuteTaskers as $tasker) {
+                        $currentTaskerTask = $tasks[$tasker];
+                        $distance = $this->distance($currentTaskerTask['lat'], $currentTaskerTask['lng'], $task['lat'], $task['lng']);
+                        $gain = $distance - $this->computeTaskerMinDist($tasks, $currentTaskerTask, $task["id"]);
+                        if ($worstGain == null || $gain < $worstGain) {
+                            $worstGain = $gain;
+                            $selectedTasker = $tasker;
                         }
                     }
                 }
-                $tasks[$taskIndex]['assignee_id'] = $bestTasker;
-                $taskersCurrentTask[$bestTasker] = $tasks[$taskIndex];
+                $tasks[$taskIndex]['assignee_id'] = $selectedTasker;
+                $taskersCurrentTask[$selectedTasker] = $task;
             }
-
             $currentTaskId = $taskIndex;
         }
 
@@ -74,7 +88,6 @@ class HookController extends Controller
 
         $secs = strtotime($timeToGo) - strtotime("00:00:00");
         $result = date("H:i:s", strtotime($currentTask["dueTime"] . '+ 30 minutes') + $secs);
-
         return (new \DateTime($result) < new \DateTime($taskToCompare['dueTime']));
     }
 
@@ -88,5 +101,21 @@ class HookController extends Controller
         $d = $radius * $c;
 
         return $d;
+    }
+
+    private function computeTaskerMinDist($tasks, $taskerFutureTask, $currentTaskId)
+    {
+        $minDist = null;
+        foreach ($tasks as $task) {
+            if ($task["id"] != $currentTaskId) {
+                if ($this->isExecutable($taskerFutureTask, $task)) {
+                    $distance = $this->distance($taskerFutureTask['lat'], $taskerFutureTask['lng'], $task['lat'], $task['lng']);
+                    if (!$minDist || $minDist > $distance) {
+                        $minDist  = $distance;
+                    }
+                }
+            }
+        }
+        return $minDist;
     }
 }
