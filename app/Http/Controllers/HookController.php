@@ -27,7 +27,7 @@ class HookController extends Controller
         $taskersCurrentTask = array_fill(0, $taskersCount - 1, null);
 
         $tasks[0]['assignee_id'] = 0;
-        $taskersCurrentTask[1] = $tasks[$currentTaskId];
+        $taskersCurrentTask[0] = $tasks[$currentTaskId];
 
         foreach ($tasks as $taskIndex => $task) {
             if ($currentTaskId !== $taskIndex) {
@@ -40,7 +40,7 @@ class HookController extends Controller
                         }
                     } else if ($this->isExecutable(
                         $currentTaskerTask,
-                        $tasks[$taskIndex]
+                        $task
                     )) {
                         if (!$bestTime || $bestTime > $currentTaskerTask["dueTime"]) {
                             $bestTasker = $tasker;
