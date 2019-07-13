@@ -24,7 +24,7 @@ class HookController extends Controller
         $currentTaskId = 0; // Start with the first task
 
         $taskersCount = $result["taskersCount"];
-        $taskersCurrentTask = array_fill(0, $taskersCount - 1, null);
+        $taskersCurrentTask = array_fill(0, $taskersCount, null);
 
         $tasks[0]['assignee_id'] = 0;
         $taskersCurrentTask[0] = $tasks[$currentTaskId];
