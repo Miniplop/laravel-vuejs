@@ -24,9 +24,9 @@ class HookController extends Controller
         $currentTaskId = 0; // Start with the first task
 
         $taskersCount = $result["taskersCount"];
-        $taskersCurrentTask = array_fill(0, $taskersCount-1, null);
+        $taskersCurrentTask = array_fill(0, $taskersCount - 1, null);
 
-        $tasks[0]['assignee_id'] = 1;
+        $tasks[0]['assignee_id'] = 0;
         $taskersCurrentTask[1] = $tasks[$currentTaskId];
 
         foreach ($tasks as $taskIndex => $task) {
@@ -70,16 +70,13 @@ class HookController extends Controller
 
     private function distance($lat1, $lon1, $lat2, $lon2)
     {
-        if (($lat1 == $lat2) && ($lon1 == $lon2)) {
-            return 0;
-        } else {
-            $theta = $lon1 - $lon2;
-            $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
-            $dist = acos($dist);
-            $dist = rad2deg($dist);
-            $miles = $dist * 60 * 1.1515;
+        $radius = 6371;
+        $lat = deg2rad($lat1 - $lat2);
+        $lng = deg2rad($lon1 - $lon2);
+        $a = sin($lat / 2) * sin($lat / 2) + cos(deg2rad($lat2)) * cos(deg2rad($lat1)) * sin($lng / 2) * sin($lng / 2);
+        $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
+        $d = $radius * $c;
 
-            return $miles * 1.60934;
-        }
+        return $d;
     }
 }
