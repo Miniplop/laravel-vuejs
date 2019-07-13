@@ -1782,10 +1782,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
-      zoom: 14,
+      zoom: 10,
       center: [48.8566, 2.3522],
-      taskers: _data_json__WEBPACK_IMPORTED_MODULE_2__.taskersCount,
-      tasks: _data_json__WEBPACK_IMPORTED_MODULE_2__.tasks,
+      taskers: [],
+      tasks: [],
       selectedTasker: null
     };
   },
@@ -1793,41 +1793,45 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var _mounted = _asyncToGenerator(
     /*#__PURE__*/
     _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-      var rawData, data;
+      var data, rawData, bounds;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              rawData = null;
+              data = null;
               _context.prev = 1;
               _context.next = 4;
               return fetch('https://jean-mich.herokuapp.com/api/hooks/getData');
 
             case 4:
               rawData = _context.sent;
-              _context.next = 10;
-              break;
-
-            case 7:
-              _context.prev = 7;
-              _context.t0 = _context["catch"](1);
-              rawData = _data_json__WEBPACK_IMPORTED_MODULE_2__;
-
-            case 10:
-              _context.next = 12;
+              _context.next = 7;
               return rawData.json();
 
-            case 12:
+            case 7:
               data = _context.sent;
+              _context.next = 13;
+              break;
+
+            case 10:
+              _context.prev = 10;
+              _context.t0 = _context["catch"](1);
+              data = _data_json__WEBPACK_IMPORTED_MODULE_2__;
+
+            case 13:
               this.taskers = data.taskersCount;
               this.tasks = data.tasks;
+              bounds = new L.LatLngBounds([this.tasks.map(function (task) {
+                return [task.lat, task.lng];
+              })]);
+              this.$refs.map.fitBounds(bounds);
 
-            case 15:
+            case 17:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, this, [[1, 7]]);
+      }, _callee, this, [[1, 10]]);
     }));
 
     function mounted() {

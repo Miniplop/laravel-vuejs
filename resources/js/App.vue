@@ -40,23 +40,25 @@
         data() {
           return {
             url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
-            zoom: 14,
+            zoom: 10,
             center: [48.8566, 2.3522],
-            taskers: test.taskersCount,
-            tasks: test.tasks,
+            taskers: [],
+            tasks: [],
             selectedTasker: null
           }
         },
         async mounted() {
-            let rawData = null
+            let data = null
             try {
-              rawData = await fetch('https://jean-mich.herokuapp.com/api/hooks/getData');
+              const rawData = await fetch('https://jean-mich.herokuapp.com/api/hooks/getData');
+              data = await rawData.json();
             } catch (e) {
-              rawData = test
+              data = test
             }
-            const data = await rawData.json();
             this.taskers = data.taskersCount;
             this.tasks = data.tasks;
+            const bounds = new L.LatLngBounds([this.tasks.map(task => [task.lat, task.lng])]);
+            this.$refs.map.fitBounds(bounds)
         },
 
         computed: {
