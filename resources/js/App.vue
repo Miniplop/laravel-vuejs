@@ -5,6 +5,7 @@
                 <img class="header-image" height="64" src="images/logo2.png"/>
                 <strong>City Manager</strong>
             </div>
+            <div class="header-percentage">{{percentage}}% tasks completed</div>
             <div @click="resetSelection()" class="reset">Reset selection</div>
         </header>
         <div class="map-container">
@@ -73,6 +74,7 @@
               return acc;
             }, {});
             this.tasks = data.tasks;
+            this.percentage = data.percentage;
             const bounds = new L.LatLngBounds([this.tasks.map(task => [task.lat, task.lng])]);
             this.$refs.map.fitBounds(bounds)
         },
@@ -216,6 +218,11 @@
 
     .header-image {
         margin-right: 24px;
+    }
+
+    .header-percentage {
+        color: #44a324;
+        font-weight: bold;
     }
 
     .header-left-container {
