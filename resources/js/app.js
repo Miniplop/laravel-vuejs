@@ -34,5 +34,3 @@ const app = new Vue({
     template: `<App />`,
     components: { App }
 });
-
-navigator.serviceWorker.register('./service-worker.js');

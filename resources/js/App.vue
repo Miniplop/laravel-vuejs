@@ -28,10 +28,9 @@
                         <LTooltip>{{task.dueTime}}</LTooltip>
                     </LMarker>
                 </v-marker-cluster>
-                <LPolyline v-for="line in lines" :lat-lngs="line"></LPolyline>
+                <LPolyline v-for="line in lines" :lat-lngs="line" color="'#FF5A5F'"></LPolyline>
             </LMap>
         </div>
-
     </div>
 </template>
 
