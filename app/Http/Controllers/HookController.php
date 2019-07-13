@@ -56,6 +56,7 @@ class HookController extends Controller
         }
 
         $result["tasks"] = $tasks;
+        file_put_contents("database.json", json_encode($result));
         $apiService = app(AirHackApiService::class);
         $response = $apiService->postResult($result);
         return response()->json($response);
