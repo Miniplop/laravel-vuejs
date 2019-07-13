@@ -2,6 +2,7 @@
   "batchId": "1562975400_500_50",
   "taskersCount": 50,
   "tasksCount": 500,
+  "percentage": 50,
   "tasks": [
     {
       "dueTime": "10:00",
