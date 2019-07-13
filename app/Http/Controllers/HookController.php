@@ -31,16 +31,25 @@ class HookController extends Controller
 
         foreach ($tasks as $taskIndex => $task) {
             if ($currentTaskId !== $taskIndex) {
+                $bestTasker = null;
+                $bestTime = null;
                 foreach ($taskersCurrentTask as $tasker => $currentTaskerTask) {
-                    if ($currentTaskerTask == null || $this->isExecutable(
+                    if ($currentTaskerTask == null) {
+                        if ($bestTasker == null) {
+                            $bestTasker = $tasker;
+                        }
+                    } else if ($this->isExecutable(
                         $currentTaskerTask,
                         $tasks[$taskIndex]
                     )) {
-                        $tasks[$taskIndex]['assignee_id'] = $tasker;
-                        $taskersCurrentTask[$tasker] = $tasks[$taskIndex];
-                        break;
+                        if (!$bestTime || $bestTime > $currentTaskerTask["dueTime"]) {
+                            $bestTasker = $tasker;
+                            $bestTime = $currentTaskerTask["dueTime"];
+                        }
                     }
                 }
+                $tasks[$taskIndex]['assignee_id'] = $bestTasker;
+                $taskersCurrentTask[$bestTasker] = $tasks[$taskIndex];
             }
 
             $currentTaskId = $taskIndex;
