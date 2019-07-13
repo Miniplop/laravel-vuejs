@@ -48,7 +48,12 @@
           }
         },
         async mounted() {
-            const rawData = await fetch('https://jean-mich.herokuapp.com/api/hooks/getData');
+            let rawData = null
+            try {
+              rawData = await fetch('https://jean-mich.herokuapp.com/api/hooks/getData');
+            } catch (e) {
+              rawData = test
+            }
             const data = await rawData.json();
             this.taskers = data.taskersCount;
             this.tasks = data.tasks;

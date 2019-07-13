@@ -1798,25 +1798,36 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
+              rawData = null;
+              _context.prev = 1;
+              _context.next = 4;
               return fetch('https://jean-mich.herokuapp.com/api/hooks/getData');
 
-            case 2:
+            case 4:
               rawData = _context.sent;
-              _context.next = 5;
+              _context.next = 10;
+              break;
+
+            case 7:
+              _context.prev = 7;
+              _context.t0 = _context["catch"](1);
+              rawData = _data_json__WEBPACK_IMPORTED_MODULE_2__;
+
+            case 10:
+              _context.next = 12;
               return rawData.json();
 
-            case 5:
+            case 12:
               data = _context.sent;
               this.taskers = data.taskersCount;
               this.tasks = data.tasks;
 
-            case 8:
+            case 15:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, this);
+      }, _callee, this, [[1, 7]]);
     }));
 
     function mounted() {
