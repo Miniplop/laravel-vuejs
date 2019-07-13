@@ -3,7 +3,7 @@
         <header class="header">
             <div class="header-left-container">
                 <img class="header-image" height="64" src="images/logo2.png"/>
-                City Manager
+                <strong>City Manager</strong>
             </div>
             <div class="header-percentage">{{percentage}}% tasks completed</div>
             <div @click="resetSelection()" class="reset">Reset selection</div>
@@ -29,10 +29,9 @@
                         <LTooltip>{{task.dueTime}}</LTooltip>
                     </LMarker>
                 </v-marker-cluster>
-                <LPolyline v-for="line in lines" :lat-lngs="line"></LPolyline>
+                <LPolyline v-for="line in lines" :lat-lngs="line" color="'#FF5A5F'"></LPolyline>
             </LMap>
         </div>
-
     </div>
 </template>
 

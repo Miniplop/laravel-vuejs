@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "leaflet": "^1.5.1",
+        "leaflet-polylinedecorator": "^1.6.0",
         "vue-axios": "^2.1.4",
         "vue-router": "^3.0.7",
         "vue2-google-maps": "^0.10.7",

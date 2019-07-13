@@ -20844,7 +20844,8 @@ var staticRenderFns = [
         staticClass: "header-image",
         attrs: { height: "64", src: "images/logo2.png" }
       }),
-      _vm._v("\n            City Manager\n        ")
+      _vm._v(" "),
+      _c("strong", [_vm._v("City Manager")])
     ])
   }
 ]
@@ -48403,6 +48404,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_2___default.a({
     App: _App_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
   }
 });
+navigator.serviceWorker.register('./service-worker.js');
 
 /***/ }),
 
