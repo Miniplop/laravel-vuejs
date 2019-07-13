@@ -31,20 +31,38 @@ class HookController extends Controller
 
         foreach ($tasks as $taskIndex => $task) {
             if ($currentTaskId !== $taskIndex) {
-                $bestTasker = null;
+                $bestTaskers = null;
                 $bestTime = null;
                 foreach ($taskersCurrentTask as $tasker => $currentTaskerTask) {
                     if ($currentTaskerTask == null) {
-                        if ($bestTasker == null) {
-                            $bestTasker = $tasker;
+                        if ($bestTaskers == null) {
+                            $bestTaskers = array($tasker);
                         }
                     } else if ($this->isExecutable(
                         $currentTaskerTask,
                         $tasks[$taskIndex]
                     )) {
-                        if (!$bestTime || $bestTime > $currentTaskerTask["dueTime"]) {
-                            $bestTasker = $tasker;
+                        if (!$bestTime || $bestTime < $currentTaskerTask["dueTime"]) {
+                            $bestTaskers = array($tasker);
                             $bestTime = $currentTaskerTask["dueTime"];
+                        } else if ($bestTime == $currentTaskerTask["dueTime"]) {
+                            array_push($bestTaskers, $tasker);
+                        }
+                    }
+                }
+                $bestDistance = null;
+                $bestTasker = null;
+                if ($bestTaskers != null) {
+                    foreach ($bestTaskers as $tasker) {
+                        $distance = $this->distance(
+                            $taskersCurrentTask[$tasker]['lat'],
+                            $taskersCurrentTask[$tasker]['lng'],
+                            $task['lat'],
+                            $task['lng']
+                        );
+                        if (!$bestDistance || $bestDistance > $distance) {
+                            $bestDistance = $distance;
+                            $bestTasker = $tasker;
                         }
                     }
                 }
