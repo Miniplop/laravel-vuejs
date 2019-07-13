@@ -3,7 +3,7 @@
         <header class="header">
             <div class="header-left-container">
                 <img class="header-image" height="64" src="images/logo2.png"/>
-                City Manager
+                <strong>City Manager</strong>
             </div>
             <div @click="resetSelection()" class="reset">Reset selection</div>
         </header>
