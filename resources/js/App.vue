@@ -24,11 +24,11 @@
             >
                 <LTileLayer :url="url"></LTileLayer>
                 <v-marker-cluster>
-                    <LMarker v-for="task in filteredTasks" :lat-lng="[task.lat, task.lng]" >
+                    <LMarker v-for="task in filteredTasks" :lat-lng="[task.lat, task.lng]" :icon="icon">
                         <LTooltip>{{task.dueTime}}</LTooltip>
                     </LMarker>
                 </v-marker-cluster>
-                <LPolyline v-for="line in lines" :lat-lngs="line" color="'#FF5A5F'"></LPolyline>
+                <LPolyline v-for="line in lines" :lat-lngs="line" color="#FF5A5F"></LPolyline>
             </LMap>
         </div>
     </div>
@@ -45,6 +45,14 @@
             url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
             zoom: 10,
             center: [48.8566, 2.3522],
+            icon: new L.Icon({
+              iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+              shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+              iconSize: [25, 41],
+              iconAnchor: [12, 41],
+              popupAnchor: [1, -34],
+              shadowSize: [41, 41]
+            }),
             taskers: [],
             tasks: [],
             taskersInfosMap: {},
@@ -137,6 +145,22 @@
         height: 100%;
         width: 100%;
         display: flex;
+    }
+
+    .marker-cluster-small{
+        background-color: rgba(255, 90, 95, 0.8) !important;
+    }
+
+    .marker-cluster{
+        background-color: rgba(183, 160, 161, 0.8) !important;
+    }
+
+    .marker-cluster div{
+        background-color: #FF5A5F !important;
+    }
+
+    .marker-cluster-small  div{
+        background-color: #FF5A5F !important;
     }
 
     #app {

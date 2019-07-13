@@ -1778,7 +1778,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1788,6 +1787,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
       zoom: 10,
       center: [48.8566, 2.3522],
+      icon: new L.Icon({
+        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      }),
       taskers: [],
       tasks: [],
       taskersInfosMap: {},
@@ -2029,7 +2036,7 @@ exports.i(__webpack_require__(/*! -!../../node_modules/css-loader??ref--6-1!../.
 exports.i(__webpack_require__(/*! -!../../node_modules/css-loader??ref--6-1!../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!leaflet.markercluster/dist/MarkerCluster.Default.css */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css"), "");
 
 // module
-exports.push([module.i, "\nh2 {\n    font-weight: bold;\n}\nstrong {\n    font-weight: bold;\n}\nhtml, body {\n    height: 100%;\n    width: 100%;\n    display: flex;\n}\n#app {\n    font-family: 'Avenir', Helvetica, Arial, sans-serif;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n    text-align: center;\n    color: #2c3e50;\n    display: flex;\n    flex: 1;\n    flex-direction: column;\n}\n.reset {\n    padding: 11px 15px;\n    border: 1px solid #d3d3d3;\n    border-radius: 70px;\n    cursor: pointer;\n    transition: all 200ms;\n}\n.reset:hover {\n    background-color: rgb(235, 235, 235);\n}\n.list-item {\n    height: 60px;\n    display: flex;\n    padding: 0 24px;\n    justify-content: space-around;        align-items: center;\n    border-bottom: 1px solid rgb(235, 235, 235);\n    cursor: pointer;\n    transition: all 200ms;\n}\n.list-item.selected {\n    background-color: rgb(235, 235, 235);\n}\n.list-item:hover {\n    background-color: rgb(235, 235, 235);\n}\n.tasker-list {\n    width: 30%;\n    overflow: auto;\n}\n.map-container {\n    flex: 1;\n    display: flex;\n}\n.header-image {\n    margin-right: 24px;\n}\n.header-left-container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.stat-container {\n    display: flex;\n    flex-direction: column;\n    justify-content: flex-end;\n    align-items: flex-end;\n}\n.header {\n    height: 80px;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: 0 24px;\n    border-bottom: 1px solid rgb(235, 235, 235);\n}\n", ""]);
+exports.push([module.i, "\nh2 {\n    font-weight: bold;\n}\nstrong {\n    font-weight: bold;\n}\nhtml, body {\n    height: 100%;\n    width: 100%;\n    display: flex;\n}\n.marker-cluster-small{\n    background-color: rgba(255, 90, 95, 0.8) !important;\n}\n.marker-cluster{\n    background-color: rgba(183, 160, 161, 0.8) !important;\n}\n.marker-cluster div{\n    background-color: #FF5A5F !important;\n}\n.marker-cluster-small  div{\n    background-color: #FF5A5F !important;\n}\n#app {\n    font-family: 'Avenir', Helvetica, Arial, sans-serif;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n    text-align: center;\n    color: #2c3e50;\n    display: flex;\n    flex: 1;\n    flex-direction: column;\n}\n.reset {\n    padding: 11px 15px;\n    border: 1px solid #d3d3d3;\n    border-radius: 70px;\n    cursor: pointer;\n    transition: all 200ms;\n}\n.reset:hover {\n    background-color: rgb(235, 235, 235);\n}\n.list-item {\n    height: 60px;\n    display: flex;\n    padding: 0 24px;\n    justify-content: space-around;        align-items: center;\n    border-bottom: 1px solid rgb(235, 235, 235);\n    cursor: pointer;\n    transition: all 200ms;\n}\n.list-item.selected {\n    background-color: rgb(235, 235, 235);\n}\n.list-item:hover {\n    background-color: rgb(235, 235, 235);\n}\n.tasker-list {\n    width: 30%;\n    overflow: auto;\n}\n.map-container {\n    flex: 1;\n    display: flex;\n}\n.header-image {\n    margin-right: 24px;\n}\n.header-left-container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.stat-container {\n    display: flex;\n    flex-direction: column;\n    justify-content: flex-end;\n    align-items: flex-end;\n}\n.header {\n    height: 80px;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: 0 24px;\n    border-bottom: 1px solid rgb(235, 235, 235);\n}\n", ""]);
 
 // exports
 
@@ -2147,6 +2154,148 @@ module.exports = function escape(url) {
     return url
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/konami-code/KonamiCode.js":
+/*!************************************************!*\
+  !*** ./node_modules/konami-code/KonamiCode.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*!
+ *
+ * A konami code easter egg handler
+ *
+ * @KonamiCode
+ * @author: kitajchuk
+ *
+ *
+ */
+(function ( factory ) {
+
+    if ( true ) {
+        module.exports = factory();
+
+    } else {}
+
+})(function () {
+
+
+    var _code = "38384040373937396665";
+
+
+    /**
+     *
+     * A konami code easter egg handler
+     * @constructor KonamiCode
+     * @memberof! <global>
+     *
+     */
+    var KonamiCode = function () {
+        return this.init.apply( this, arguments );
+    };
+
+
+    KonamiCode.prototype = {
+        constructor: KonamiCode,
+
+        /**
+         *
+         * KonamiCode init constructor method
+         * @memberof KonamiCode
+         * @method KonamiCode.init
+         *
+         */
+        init: function () {
+            /**
+             *
+             * Timeout between key inputs to reset
+             * @memberof KonamiCode
+             * @member KonamiCode._delay
+             *
+             */
+            this._delay = 500;
+
+            /**
+             *
+             * All supplied callbacks to this instance
+             * @memberof KonamiCode
+             * @member KonamiCode._callbacks
+             *
+             */
+            this._callbacks = [];
+
+            /**
+             *
+             * Timeout reference
+             * @memberof KonamiCode
+             * @member KonamiCode._timeout
+             *
+             */
+            this._timeout = null;
+
+            var code = "",
+                self = this,
+                handler = function ( e ) {
+                    try {
+                        clearTimeout( self._timeout );
+
+                    } catch ( error ) {}
+
+                    code = String( code + e.keyCode );
+
+                    if ( code === _code ) {
+                        self._dispatch( "konami" );
+                    }
+
+                    self._timeout = setTimeout(function () {
+                        clearTimeout( self._timeout );
+
+                        code = "";
+
+                    }, self._delay );
+                };
+
+            document.addEventListener( "keydown", handler, false );
+        },
+
+        /**
+         *
+         * Listen for the konami code input
+         * @memberof KonamiCode
+         * @method KonamiCode.listen
+         * @param {function} callback The function to call on input
+         *
+         */
+        listen: function ( callback ) {
+            if ( typeof callback === "function" ) {
+                this._callbacks.push( callback );
+            }
+
+            return this;
+        },
+
+        /**
+         *
+         * Internal dispatcher when konami code input is matched
+         * @memberof KonamiCode
+         * @method KonamiCode._dispatch
+         *
+         */
+        _dispatch: function () {
+            for ( var i = this._callbacks.length; i--; ) {
+                this._callbacks[ i ]();
+            }
+        }
+    };
+
+
+    return KonamiCode;
+
+
+});
 
 /***/ }),
 
@@ -20815,7 +20964,9 @@ var render = function() {
               _vm._l(_vm.filteredTasks, function(task) {
                 return _c(
                   "LMarker",
-                  { attrs: { "lat-lng": [task.lat, task.lng] } },
+                  {
+                    attrs: { "lat-lng": [task.lat, task.lng], icon: _vm.icon }
+                  },
                   [_c("LTooltip", [_vm._v(_vm._s(task.dueTime))])],
                   1
                 )
@@ -20824,7 +20975,9 @@ var render = function() {
             ),
             _vm._v(" "),
             _vm._l(_vm.lines, function(line) {
-              return _c("LPolyline", { attrs: { "lat-lngs": line } })
+              return _c("LPolyline", {
+                attrs: { "lat-lngs": line, color: "#FF5A5F" }
+              })
             })
           ],
           2
@@ -48382,6 +48535,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+var KonamiCode = __webpack_require__(/*! konami-code */ "./node_modules/konami-code/KonamiCode.js");
+
+var konami = new KonamiCode();
+konami.listen(function () {
+  wink;
+});
 vue__WEBPACK_IMPORTED_MODULE_2___default.a.component('l-map', vue2_leaflet__WEBPACK_IMPORTED_MODULE_5__["LMap"]);
 vue__WEBPACK_IMPORTED_MODULE_2___default.a.component('l-tile-layer', vue2_leaflet__WEBPACK_IMPORTED_MODULE_5__["LTileLayer"]);
 vue__WEBPACK_IMPORTED_MODULE_2___default.a.component('l-marker', vue2_leaflet__WEBPACK_IMPORTED_MODULE_5__["LMarker"]);
@@ -48404,7 +48564,6 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_2___default.a({
     App: _App_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
   }
 });
-navigator.serviceWorker.register('./service-worker.js');
 
 /***/ }),
 

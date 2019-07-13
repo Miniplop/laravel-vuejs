@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
         <title>AirHack by Airbnb</title>
 
+        <script src="https://rawgit.com/WeiChiaChang/Easter-egg/master/easter-eggs-collection.js"></script>
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     </head>
     <body>

@@ -8,6 +8,13 @@ import { Icon } from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import Vue2LeafletMarkerCluster from 'vue2-leaflet-markercluster'
 
+var KonamiCode = require( "konami-code" );
+var konami = new KonamiCode();
+
+konami.listen(function () {
+  wink
+});
+
 Vue.component('l-map', LMap);
 Vue.component('l-tile-layer', LTileLayer);
 Vue.component('l-marker', LMarker);
