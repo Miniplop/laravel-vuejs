@@ -3503,5 +3503,364 @@
       "id": "1312594214027",
       "assignee_id": 42
     }
+  ],
+  "plannings": [
+    {
+      "tasker_id": 1,
+      "task_number": 12,
+      "first_task": "10:00",
+      "last_task": "18:15",
+      "working_time": 360
+    },
+    {
+      "tasker_id": 2,
+      "task_number": 12,
+      "first_task": "10:00",
+      "last_task": "18:15",
+      "working_time": 360
+    },
+    {
+      "tasker_id": 3,
+      "task_number": 12,
+      "first_task": "10:00",
+      "last_task": "18:15",
+      "working_time": 360
+    },
+    {
+      "tasker_id": 4,
+      "task_number": 12,
+      "first_task": "10:00",
+      "last_task": "18:30",
+      "working_time": 360
+    },
+    {
+      "tasker_id": 5,
+      "task_number": 12,
+      "first_task": "10:00",
+      "last_task": "18:15",
+      "working_time": 360
+    },
+    {
+      "tasker_id": 6,
+      "task_number": 12,
+      "first_task": "10:00",
+      "last_task": "18:15",
+      "working_time": 360
+    },
+    {
+      "tasker_id": 7,
+      "task_number": 12,
+      "first_task": "10:00",
+      "last_task": "18:30",
+      "working_time": 360
+    },
+    {
+      "tasker_id": 8,
+      "task_number": 12,
+      "first_task": "10:00",
+      "last_task": "18:30",
+      "working_time": 360
+    },
+    {
+      "tasker_id": 9,
+      "task_number": 12,
+      "first_task": "10:00",
+      "last_task": "18:15",
+      "working_time": 360
+    },
+    {
+      "tasker_id": 10,
+      "task_number": 12,
+      "first_task": "10:00",
+      "last_task": "18:30",
+      "working_time": 360
+    },
+    {
+      "tasker_id": 11,
+      "task_number": 12,
+      "first_task": "10:00",
+      "last_task": "18:15",
+      "working_time": 360
+    },
+    {
+      "tasker_id": 12,
+      "task_number": 12,
+      "first_task": "10:00",
+      "last_task": "18:30",
+      "working_time": 360
+    },
+    {
+      "tasker_id": 13,
+      "task_number": 12,
+      "first_task": "10:00",
+      "last_task": "18:45",
+      "working_time": 360
+    },
+    {
+      "tasker_id": 14,
+      "task_number": 12,
+      "first_task": "10:00",
+      "last_task": "18:45",
+      "working_time": 360
+    },
+    {
+      "tasker_id": 15,
+      "task_number": 12,
+      "first_task": "10:00",
+      "last_task": "18:45",
+      "working_time": 360
+    },
+    {
+      "tasker_id": 16,
+      "task_number": 12,
+      "first_task": "10:15",
+      "last_task": "18:45",
+      "working_time": 360
+    },
+    {
+      "tasker_id": 17,
+      "task_number": 12,
+      "first_task": "10:15",
+      "last_task": "18:45",
+      "working_time": 360
+    },
+    {
+      "tasker_id": 18,
+      "task_number": 11,
+      "first_task": "10:15",
+      "last_task": "18:15",
+      "working_time": 330
+    },
+    {
+      "tasker_id": 19,
+      "task_number": 11,
+      "first_task": "10:15",
+      "last_task": "18:15",
+      "working_time": 330
+    },
+    {
+      "tasker_id": 20,
+      "task_number": 11,
+      "first_task": "10:15",
+      "last_task": "18:15",
+      "working_time": 330
+    },
+    {
+      "tasker_id": 21,
+      "task_number": 11,
+      "first_task": "10:15",
+      "last_task": "18:30",
+      "working_time": 330
+    },
+    {
+      "tasker_id": 22,
+      "task_number": 11,
+      "first_task": "10:15",
+      "last_task": "18:15",
+      "working_time": 330
+    },
+    {
+      "tasker_id": 23,
+      "task_number": 12,
+      "first_task": "10:15",
+      "last_task": "18:45",
+      "working_time": 360
+    },
+    {
+      "tasker_id": 24,
+      "task_number": 11,
+      "first_task": "10:15",
+      "last_task": "18:15",
+      "working_time": 330
+    },
+    {
+      "tasker_id": 25,
+      "task_number": 11,
+      "first_task": "10:15",
+      "last_task": "18:15",
+      "working_time": 330
+    },
+    {
+      "tasker_id": 26,
+      "task_number": 11,
+      "first_task": "10:15",
+      "last_task": "18:15",
+      "working_time": 330
+    },
+    {
+      "tasker_id": 27,
+      "task_number": 11,
+      "first_task": "10:15",
+      "last_task": "18:30",
+      "working_time": 330
+    },
+    {
+      "tasker_id": 28,
+      "task_number": 11,
+      "first_task": "10:15",
+      "last_task": "18:30",
+      "working_time": 330
+    },
+    {
+      "tasker_id": 29,
+      "task_number": 11,
+      "first_task": "10:15",
+      "last_task": "18:30",
+      "working_time": 330
+    },
+    {
+      "tasker_id": 30,
+      "task_number": 10,
+      "first_task": "10:15",
+      "last_task": "18:30",
+      "working_time": 300
+    },
+    {
+      "tasker_id": 31,
+      "task_number": 11,
+      "first_task": "10:15",
+      "last_task": "18:30",
+      "working_time": 330
+    },
+    {
+      "tasker_id": 32,
+      "task_number": 10,
+      "first_task": "10:15",
+      "last_task": "18:30",
+      "working_time": 300
+    },
+    {
+      "tasker_id": 33,
+      "task_number": 10,
+      "first_task": "10:15",
+      "last_task": "18:45",
+      "working_time": 300
+    },
+    {
+      "tasker_id": 34,
+      "task_number": 10,
+      "first_task": "10:15",
+      "last_task": "18:45",
+      "working_time": 300
+    },
+    {
+      "tasker_id": 35,
+      "task_number": 9,
+      "first_task": "10:30",
+      "last_task": "18:45",
+      "working_time": 270
+    },
+    {
+      "tasker_id": 36,
+      "task_number": 10,
+      "first_task": "10:30",
+      "last_task": "18:30",
+      "working_time": 300
+    },
+    {
+      "tasker_id": 37,
+      "task_number": 9,
+      "first_task": "10:30",
+      "last_task": "18:45",
+      "working_time": 270
+    },
+    {
+      "tasker_id": 38,
+      "task_number": 8,
+      "first_task": "10:30",
+      "last_task": "18:45",
+      "working_time": 240
+    },
+    {
+      "tasker_id": 39,
+      "task_number": 8,
+      "first_task": "10:30",
+      "last_task": "18:45",
+      "working_time": 240
+    },
+    {
+      "tasker_id": 40,
+      "task_number": 9,
+      "first_task": "10:30",
+      "last_task": "18:45",
+      "working_time": 270
+    },
+    {
+      "tasker_id": 41,
+      "task_number": 7,
+      "first_task": "10:30",
+      "last_task": "18:45",
+      "working_time": 210
+    },
+    {
+      "tasker_id": 42,
+      "task_number": 7,
+      "first_task": "10:30",
+      "last_task": "18:45",
+      "working_time": 210
+    },
+    {
+      "tasker_id": 43,
+      "task_number": 6,
+      "first_task": "10:30",
+      "last_task": "18:45",
+      "working_time": 180
+    },
+    {
+      "tasker_id": 44,
+      "task_number": 6,
+      "first_task": "10:30",
+      "last_task": "15:30",
+      "working_time": 180
+    },
+    {
+      "tasker_id": 45,
+      "task_number": 5,
+      "first_task": "10:30",
+      "last_task": "15:30",
+      "working_time": 150
+    },
+    {
+      "tasker_id": 46,
+      "task_number": 5,
+      "first_task": "10:30",
+      "last_task": "15:30",
+      "working_time": 150
+    },
+    {
+      "tasker_id": 47,
+      "task_number": 4,
+      "first_task": "10:45",
+      "last_task": "14:45",
+      "working_time": 120
+    },
+    {
+      "tasker_id": 48,
+      "task_number": 5,
+      "first_task": "10:45",
+      "last_task": "15:30",
+      "working_time": 150
+    },
+    {
+      "tasker_id": 49,
+      "task_number": 3,
+      "first_task": "11:45",
+      "last_task": "14:45",
+      "working_time": 90
+    },
+    {
+      "tasker_id": 50,
+      "task_number": 3,
+      "first_task": "11:45",
+      "last_task": "15:15",
+      "working_time": 90
+    },
+    {
+      "tasker_id": null,
+      "task_number": 8,
+      "first_task": "12:00",
+      "last_task": "15:15",
+      "working_time": 240
+    }
   ]
 }

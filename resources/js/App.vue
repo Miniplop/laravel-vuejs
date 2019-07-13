@@ -10,7 +10,11 @@
         <div class="map-container">
             <div class="tasker-list" >
                 <div :class="[item === selectedTasker ?  'selected' : '']" @click="onClickTasker(item)" class="list-item" v-for="(item) in taskers">
-                    Tasker n°{{item}}
+                    <h2>Tasker n°{{item}}</h2>
+                    <div class="stat-container">
+                        <p> Takes <strong>{{ taskersInfosMap[item].task_number }} tasks </strong></p>
+                        <p> Works <strong>{{ taskersInfosMap[item].working_time / 60 }}h </strong></p>
+                    </div>
                 </div>
             </div>
             <LMap
@@ -44,6 +48,7 @@
             center: [48.8566, 2.3522],
             taskers: [],
             tasks: [],
+            taskersInfosMap: {},
             selectedTasker: null
           }
         },
@@ -56,6 +61,10 @@
               data = test
             }
             this.taskers = data.taskersCount;
+            this.taskersInfosMap = data.plannings.reduce((acc, taskersInfo) => {
+              acc[taskersInfo['tasker_id']] = taskersInfo;
+              return acc;
+            }, {});
             this.tasks = data.tasks;
             const bounds = new L.LatLngBounds([this.tasks.map(task => [task.lat, task.lng])]);
             this.$refs.map.fitBounds(bounds)
@@ -117,6 +126,14 @@
     @import "~leaflet.markercluster/dist/MarkerCluster.css";
     @import "~leaflet.markercluster/dist/MarkerCluster.Default.css";
 
+    h2 {
+        font-weight: bold;
+    }
+
+    strong {
+        font-weight: bold;
+    }
+
     html, body {
         height: 100%;
         width: 100%;
@@ -149,8 +166,8 @@
     .list-item {
         height: 60px;
         display: flex;
-        padding-left: 24px;
-        align-items: center;
+        padding: 0 24px;
+        justify-content: space-around;        align-items: center;
         border-bottom: 1px solid rgb(235, 235, 235);
         cursor: pointer;
         transition: all 200ms;
@@ -182,6 +199,13 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    .stat-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
     }
 
     .header {
