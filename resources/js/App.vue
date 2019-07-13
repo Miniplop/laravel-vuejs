@@ -47,9 +47,13 @@
             selectedTasker: null
           }
         },
-        mounted(){
-            fetch('https://9de9745c.ngrok.io/getData')
+        async mounted() {
+            const rawData = await fetch('https://jean-mich.herokuapp.com/api/hooks/getData');
+            const data = await rawData.json();
+            this.taskers = data.taskersCount;
+            this.tasks = data.tasks;
         },
+
         computed: {
           filteredTasks() {
             if (!this.selectedTasker) {
